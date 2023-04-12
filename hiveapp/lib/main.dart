@@ -130,17 +130,29 @@ class _MyAppState extends State<MyApp> {
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {
+                                  // boxPersons.deleteAt(index);
+                                  nameController.text = person.name;
+                                  ageController.text = person.age.toString();
+                                });
+                              },
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.lightBlueAccent,
+                              ),
+                            ),
+                            title: Text(person.name),
+                            subtitle: Text('age: ' + person.age.toString()),
+                            trailing: IconButton(
+                              onPressed: () {
+                                setState(() {
                                   boxPersons.deleteAt(index);
                                 });
                               },
                               icon: Icon(
                                 Icons.delete,
-                                color: Colors.lightBlueAccent,
+                                color: Colors.blueGrey,
                               ),
                             ),
-                            title: Text(person.name),
-                            subtitle: const Text('Name'),
-                            trailing: Text('age: ' + person.age.toString()),
                           );
                         },
                         itemCount: boxPersons.length),
